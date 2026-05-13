@@ -1,0 +1,33 @@
+class Solution:
+
+    def isValid(self, s: str) -> bool:
+        stack = []
+        hashmap = {
+            ')' : '(',
+            '}' : '{',
+            ']' : '['
+        }
+
+        for char in s:
+            if char in hashmap:
+                if stack and stack[-1] == hashmap[char]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(char)
+        return True if not stack else False
+        # if not stack:
+        #     return True
+        # else:
+        #     return False
+        # while '()' in s or '{}' in s or '[]' in s:
+        #     s = s.replace('()', '')
+        #     s = s.replace('{}', '')
+        #     s = s.replace('[]', '')
+        # return s == ''
+
+
+                
+        
+        
